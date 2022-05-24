@@ -34,7 +34,7 @@ public class getWorddic {
     					
     					
     				}
-    			    System.out.println(worddic);
+    			    
     			    
     				rs.close();
     				state.close();

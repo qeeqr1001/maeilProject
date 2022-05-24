@@ -22,8 +22,7 @@ public class compareKeyword extends Request  { //Request 클래스 상속받은 compare
 	public compareKeyword() { 
 		//키워드가 word테이블에서 가져온 데이터와 같은지 확인하고 맞다면 sql문으로 그에 일치하는 quest를 찾음
 		//+키워드 모두 일치하는 질문을 찾아내기.
-		
-		System.out.println("comparKeyword함수 실행");
+
 		
     	//입력키워드(arr1)와 worddic(arr2) 비교 함수
     	int count=0;
@@ -35,9 +34,7 @@ public class compareKeyword extends Request  { //Request 클래스 상속받은 compare
     			
     			if (resultVoc.get(i).equals(worddic.get(j))==true) {
                     count+=1;
-                    System.out.println("!");
-                    System.out.println(resultVoc.get(i)+"키워드가 word테이블에 있습니다.");
-                    
+                   
                     try{ 
                     conn = DriverManager.getConnection(url, user, password);
                     String sql3="SELECT quest_content FROM quest left JOIN connect ON quest.quest_id=connect.connect_questid left JOIN word ON connect.connect_wordid=word.word_id  WHERE word_content LIKE ?";
@@ -89,6 +86,10 @@ public class compareKeyword extends Request  { //Request 클래스 상속받은 compare
     	}
     		
     }
+    	if (compareResults.size()<1) {
+    		System.out.println("일치하는 질문이 없습니다. 질문을 다시 입력해주세요.");
+    		System.exit(0);
+    	}
     	 
     	
        //겹치는 질문을 체크 , 겹치는 질문이 제일 많은 질문을 뽑아내려는 과정.
@@ -110,7 +111,7 @@ public class compareKeyword extends Request  { //Request 클래스 상속받은 compare
         	Map.Entry entry=(Map.Entry)it.next();
         	ev.add((Integer) entry.getValue());
         	ek.add((String) entry.getKey());
-        	System.out.println(entry.getKey()+" "+entry.getValue());
+//        	System.out.println(entry.getKey()+" "+entry.getValue());
     		}
         int max=ev.get(0);
         String mq=ek.get(0);
@@ -136,8 +137,8 @@ public class compareKeyword extends Request  { //Request 클래스 상속받은 compare
     	}
     	}
 		
-    	System.out.println(max);
-    	System.out.println(ml);
+//    	System.out.println(max);
+//    	System.out.println(ml);
     }
 
 	

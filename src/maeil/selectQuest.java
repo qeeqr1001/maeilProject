@@ -11,20 +11,36 @@ public class selectQuest extends compareKeyword {
 	public selectQuest(){
 		PreparedStatement pstmt=null;
 	
-	System.out.println(ml);
-	Scanner sc=new Scanner (System.in);
-	System.out.println("원하는 질문의 번호를 선택해주세요.");
-	int num = sc.nextInt();
-	System.out.println(num);
+		
+//	System.out.println(num);
 	String FinalQuest = null;
-	for (int i=0;i<ml.size();i++) {
-		if (i==num-1) {
-			System.out.println("사용자가 선택한 질문");
-			System.out.println(ml.get(i));
-			FinalQuest=ml.get(i);
-		}
-	
+	if (ml.size()==1) {
+		System.out.println(ml.get(0));
+		FinalQuest=ml.get(0);
 	}
+	
+	else {
+		System.out.println(ml);
+		System.out.println("원하는 질문의 번호를 선택해주세요.");
+		Scanner sc=new Scanner (System.in);
+		
+		int num = sc.nextInt();
+		
+		for (int i=0;i<ml.size();i++) {
+			
+		
+			if (i==(num-1)) {
+				
+				System.out.println("사용자가 선택한 질문");
+				System.out.println(ml.get(i));
+				FinalQuest=ml.get(i);
+			}
+		
+		}
+		
+	}
+		
+	
 	
 	 try{ 
 		 conn = DriverManager.getConnection(url, user, password);

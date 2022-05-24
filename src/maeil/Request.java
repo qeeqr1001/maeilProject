@@ -18,7 +18,7 @@ public class Request  extends getWorddic { //getWorddic 상속받은 Request 클래스
 		  System.out.println("궁금한 점을 물어보세요.");
 
           String string = sc.nextLine();
-          try {  //설명불가 인터넷에서 코드참고.
+          try { 
                 MorphemeAnalyzer ma = new MorphemeAnalyzer();
                 ma.createLogger(null);
                
@@ -34,11 +34,11 @@ public class Request  extends getWorddic { //getWorddic 상속받은 Request 클래스
                       Spliterator<Eojeol> sp = st.spliterator();
                       count[i]+=1;
                       
-                      System.out.println("=============================================  " + st.getSentence());
+//                      System.out.println("=============================================  " + st.getSentence());
                       for( int j = 0; j < st.size(); j++ ) {
-                            System.out.println(st.get(j));
-                            System.out.println(count[i]);
-                            System.out.println(sp);
+//                            System.out.println(st.get(j));
+//                            System.out.println(count[i]);
+//                            System.out.println(sp);
                             vocList.add(String.valueOf(st.get(j)));
                       }
                       
@@ -70,6 +70,11 @@ public class Request  extends getWorddic { //getWorddic 상속받은 Request 클래스
                         
                     }
                    
+                }
+                
+                if (resultVoc.size()<1) {
+                	System.out.println("잘못된 질문입니다. 다시 입력해주세요.(나오는 키워드X)");
+                	System.exit(0);
                 }
              
                 System.out.println(resultVoc);
