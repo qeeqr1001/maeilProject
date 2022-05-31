@@ -9,10 +9,12 @@ import java.util.Scanner;
 
 public class selectQuest extends compareKeyword {
 	public selectQuest(){
+	
 		PreparedStatement pstmt=null;
 	
-		
+	
 //	System.out.println(num);
+	
 	String FinalQuest = null;
 	if (ml.size()==1) {
 		System.out.println(ml.get(0));
@@ -84,5 +86,6 @@ public class selectQuest extends compareKeyword {
 				//
 			}
 		}
+	 
 }
 }

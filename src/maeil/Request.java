@@ -13,11 +13,14 @@ import org.snu.ids.kkma.ma.Sentence;
 public class Request  extends getWorddic { //getWorddic 상속받은 Request 클래스
 	 public static ArrayList<String>  vocList = new ArrayList<String>(); //
 	 public static ArrayList<String>  resultVoc = new ArrayList<String>(); //질문에서 명사,용언 등의 형태소만 뽑아낸 배열 resultVoc.
-		public Request() { //질문 입력 받고 형태소 분석.
+
+	 public Request() { //질문 입력 받고 형태소 분석.
+
 		  Scanner sc=new Scanner (System.in);
 		  System.out.println("궁금한 점을 물어보세요.");
-
+		  
           String string = sc.nextLine();
+  
           try { 
                 MorphemeAnalyzer ma = new MorphemeAnalyzer();
                 ma.createLogger(null);
@@ -85,7 +88,7 @@ public class Request  extends getWorddic { //getWorddic 상속받은 Request 클래스
           }
           
        
-		
+		 
           
     }
 		
